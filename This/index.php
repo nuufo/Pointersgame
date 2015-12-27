@@ -13,11 +13,13 @@
 
 	session_start();
 
-		$mysqli = new mysqli("localhost","root","root","Pointgame");
+
+
+		//$mysqli = new mysqli("localhost","root","root","Pointgame");
 
 		if(isset($_POST['login'])) {
 		$user = new User();
-		$user->login($mysqli);
+		$user->login(DB::getInstance());
 		}
 
     $page = new Twig();

@@ -1,47 +1,18 @@
-	<?php 
-	class DB {
+<?php
 
-		private static $instance = null;
-		private $mysqli;
+class DB{
+	
+	private static $instance;
 
-		const DB_URL = 'localhost';
-		const DB_USR = 'root';
-		const DB_PWD = 'root';
-		const DB_DTB = 'Pointgame';
+	private function __construct(){}
+	private function __clone(){}
 
-		function __construct() {
-
-			$this->mysqli = new mysqli(self::DB_URL, self::DB_USR, self::DB_PWD, self::DB_DTB);
-
+	public static function getInstance(){
+		if(!self::$instance){
+			self::$instance = new mysqli("localhost","root","root","Pointgame");
+			return self::$instance;
+		}else{
+			return self::$instance;
 		}
-
-		public function getMysqli() {
-			return $this->mysqli;
-		}
-
-		// funktion för att tvätta det som skickas från ett formulär med POST, används inte utanför klassen
-		public function clean($input) {
-
-			if(is_array($input)) {
-			
-				// en array med tvättade värden som matas ut
-				$clean_data = [];
-
-				// loopa igenom $_POST
-				foreach($input as $key => $value) {
-					$clean_data[$key] = $this->mysqli->real_escape_string($value);
-				}
-
-			}
-
-			else {
-
-				$clean_data = $this->mysqli->real_escape_string($input);
-
-			}
-		
-			return $clean_data;
-
-		}
-
+	}
 }
