@@ -12,14 +12,18 @@
 	//}
 
 	session_start();
-
+	$user = new User();
 
 
 		//$mysqli = new mysqli("localhost","root","root","Pointgame");
 
 		if(isset($_POST['login'])) {
-		$user = new User();
+		
 		$user->login(DB::getInstance());
+		}
+
+		if(isset($_POST['createNewUser'])) {
+		$user->createUser($_POST['newUsername'], $_POST['newUserPassword']);	
 		}
 
     $page = new Twig();
