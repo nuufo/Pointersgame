@@ -1,10 +1,8 @@
 <?php
 
 class User {
-
 	
-		function login($handler) {
-					
+		function login($handler) {					
 
 			$query = 'select username, password	from user';
 		$result = $handler -> query($query);
@@ -14,7 +12,5 @@ class User {
 					echo "inloggad";
 			}
 		}
-
-	}	
-			
+	}				
 }

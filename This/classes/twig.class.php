@@ -13,7 +13,6 @@ class Twig {
         $this->twig = new Twig_Environment($loader);
 
         $this->data = $data;
-
     }
 
     function addData($data = false) {
@@ -23,7 +22,5 @@ class Twig {
     function render($target){
 
         return $this->twig->render($target, $this->data);
-
     }
-
 }
