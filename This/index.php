@@ -26,3 +26,22 @@
 	
 	// och rita ut sidan
 	echo $page->render('index.html');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//kommentar
