@@ -22,16 +22,24 @@
 </head>
 	<body>
 		
-
-		test
-
-
-		
-		{% include "loginUserForm.html" %}
-
-			
+	
+{% if user %}
 		
 	
+
+	{% for todolist in todolists %}
+
+		{% include "showtodolist.html" %}	
+		
+	{% endfor %}
+	{% include "todolist.html" %}
+	
+
+{% else %}
+
+	{% include "loginUserform.html" %}
+
+{% endif %}
 
 	</body>
 </html>
