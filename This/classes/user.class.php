@@ -1,34 +1,25 @@
 <?php
+class User{
 
-class User {
+	public static function create($params){
 
-	
-		function login($handler) {
-					
+		if(isset($_POST['createUser'])){
+			$mysqli = DB::getInstance();
+			$username = $mysqli->real_escape_string($_POST['newUsername']);
+			$password = $mysqli->real_escape_string($_POST['newPassword']);
+		
+			$query = "
+				INSERT INTO user 
+				(username, password) 
+				VALUES ('$username', '$password')
+			";
 
-			$query = 'select username, password	from user';
-			$result = $handler -> query($query);
-			while ($row = $result -> fetch_assoc()) {
-			if ($_POST['username'] == $row['username'] && $_POST['password'] == $row['password']) {
-				$_SESSION['username'] = $_POST['username'];
-					echo "inloggad";
-				}
-			}
+			$mysqli->query($query);
 
+			return ['createdUser' => FALSE, 'message' => 'Ny användare skapad!'];
 		}
 
-		function createUser($username, $password) {
+		return ['createdUser' => TRUE];
+	}
 
-			$cleanedUsername = mysql_real_escape_string($username);
-		$cleanedPassword = mysql_real_escape_string($password);
-
-		DB::getInstance();
-
-			$query = "INSERT INTO user
-				(password, username)
-				VALUES ('$cleanedUsername, '$cleanedPassword')";
-
-				$mysqli->query($query);
-		}	
-			
 }
