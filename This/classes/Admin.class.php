@@ -22,10 +22,13 @@ class Admin{
 			$result = $mysqli->query($query);
 			$user = $result->fetch_assoc();
 
-			$result1 = $mysqli->query("SELECT * FROM todolist, user
-				WHERE user.id = todolist.user_id AND user_id=".$user['id']."
+			$query1 = "
+				SELECT * FROM todolist, user
+				WHERE user.id = todolist.user_id 
+				AND user_id=".$user['id']."
+			 	";
 
-			 	");
+			$result1 = $mysqli->query($query1);
 
 		 		while($todolist = $result1->fetch_assoc()){
 		 		$todolists[] = $todolist;
