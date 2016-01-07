@@ -34,7 +34,7 @@ class Admin{
 			$query = "
 				INSERT INTO todolist 
 				(title) 
-				VALUES (".$$title.")
+				VALUES (".$title.")
 			";
 
 			$mysqli->query($query);
