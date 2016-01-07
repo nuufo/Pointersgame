@@ -20,14 +20,30 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
-	<body>	
-		{% if user %}
-			{% for todolist in todolists %}
-				{% include "showtodolist.html" %}		
-			{% endfor %}
-			{% include "todolist.html" %}
-		{% else %}
-			{% include "loginUserform.html" %}
-		{% endif %}
+<<<<<<< HEAD
+	<body>
+	
+	{% include "createUserForm.html" %}
+	
+{% if user %}
+		
+	
+
+	{% for todolist in todolists %}
+
+		{% include "showtodolist.html" %}	
+		
+	{% endfor %}
+	{% include "todolist.html" %}
+	
+
+{% else %}
+
+	{% include "loginUserform.html" %}
+
+
+{% endif %}
+
+
 	</body>
 </html>
