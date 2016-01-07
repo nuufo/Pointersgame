@@ -23,7 +23,7 @@ class Admin{
 			$user = $result->fetch_assoc();
 
 
-	
+	}
 	public static function create($params){
 
 		if(isset($_POST['createItem'])){
