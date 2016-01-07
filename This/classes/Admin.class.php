@@ -55,7 +55,7 @@ class Admin{
 		return [];
 	}
 
-	}
+	
 	public static function create($params){
 
 		if(isset($_POST['createItem'])){
