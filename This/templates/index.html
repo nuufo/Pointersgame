@@ -22,24 +22,59 @@
 </head>
 	<body>
 		
-
-		test
-
-		{% if user %}
+<!--
+		% if user %}
 
 			{% for todolist in todolists %}
 
 		{% include "showtodolist.html" %}	
-		
+		{% include "todolist.html" %}	
 			{% endfor %}
 		
 		{% endif %}
 
+			{% include "createUserForm.html" %}
+	
+{% if user %}
 		
+	
+
+	{% for todolist in todolists %}
+
+		{% include "showtodolist.html" %}	
+		
+	{% endfor %}
+	{% include "todolist.html" %}
+	
+
+{% else %}
+
+	{% include "loginUserform.html" %}
 
 
-			
+{% endif %}
+
+
+	-->
 		
+{% if user %}
+		
+	
+
+	{% for todolist in todolists %}
+
+		{% include "showtodolist.html" %}	
+		
+	{% endfor %}
+	{% include "todolist.html" %}
+	
+
+{% else %}
+
+	{% include "loginUserform.html" %}
+
+
+{% endif %}
 	
 
 	</body>

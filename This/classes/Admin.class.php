@@ -22,13 +22,7 @@ class Admin{
 			$result = $mysqli->query($query);
 			$user = $result->fetch_assoc();
 
-			$result1 = $mysqli->query("SELECT * FROM todolist, user
-				WHERE user.id = todolist.user_id AND user_id=".$user['id']."
-
-			 	");
-
-		 		while($todolist = $result1->fetch_assoc()){
-		 		$todolists[] = $todolist;
+			
 			 
 		 }
 		 
@@ -66,7 +60,7 @@ class Admin{
 			$query = "
 				INSERT INTO todolist 
 				(title) 
-				VALUES ('$title')
+				VALUES (".$$title.")
 			";
 
 			$mysqli->query($query);
