@@ -5,13 +5,7 @@ class Todolist{
 		echo "hej";
 				#17. Värdet som kommer ut här som $params är $url_parts som vi skickade in från index.php. ($params kan heta vad somhelst.)
 		 $mysqli = DB::getInstance();
-		 $result1 = $mysqli->query("SELECT * FROM todolist, user
-				WHERE user.id = todolist.user_id AND user_id=".$user['id']."
-
-			 	");
-
-		 		while($todolist = $result1->fetch_assoc()){
-		 		$todolists[] = $todolist;
+		 $result = $mysqli->query("SELECT * FROM todolist");
 
 		 while($todolist = $result->fetch_assoc()){
 		 	$todolists[] = $todolist;
