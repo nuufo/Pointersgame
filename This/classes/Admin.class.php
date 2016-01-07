@@ -37,8 +37,8 @@ class Admin{
 				$_SESSION['user']['name'] = $user['username'];
 					
 				
-				return ['user' => $_SESSION['user'], 
-					'todolists' => $todolists,
+				return [ 
+					'redirect' => '?/Todolist/all'
 				];
 				
 

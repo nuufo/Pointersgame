@@ -48,15 +48,11 @@ if(isset($data['redirect'])){
 	$twig = startTwig();
 	#25 $twig objectet inne i startwig returneras tillbaka och sätts då till $twig här inne i else satsen.
 
-	if($class == 'Admin'){
-		#26. Om url:ens värde innehåller Admin.
-		$template = "Admin/index.html";
-		#27. variablen template sätts till att vara Admin/index.html
-	}else{
-		$template = 'index.html';
-		#28. variablen template sätts till att vara index.html
-	}
+	$template = 'index.html';
+	#28. variablen template sätts till att vara index.html
+	
 
+	$data['user'] = $_SESSION['user']; //ev namnbyte om vi i framtiden vill skicka runt user. 
 	#29 Rendera ut/Skriv ut den $template som gäller (index.html/admin/index.html)
 	//	och skriv ut den data som begärs. 
 	echo $twig->render($template, $data);

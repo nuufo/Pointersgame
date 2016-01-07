@@ -21,7 +21,8 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 	<body>
-		
+	
+	{% include "createUserForm.html" %}
 	
 {% if user %}
 		
@@ -38,6 +39,7 @@
 {% else %}
 
 	{% include "loginUserform.html" %}
+
 
 {% endif %}
 

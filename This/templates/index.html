@@ -25,9 +25,18 @@
 
 		test
 
+		{% if user %}
+
+			{% for todolist in todolists %}
+
+		{% include "showtodolist.html" %}	
+		
+			{% endfor %}
+		
+		{% endif %}
 
 		
-		{% include "loginUserForm.html" %}
+
 
 			
 		

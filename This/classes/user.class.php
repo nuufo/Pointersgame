@@ -11,7 +11,7 @@ class User{
 			$query = "
 				INSERT INTO user 
 				(username, password) 
-				VALUES ('$username', '$password')
+				VALUES (".$username.", ".$password.")
 			";
 
 			$mysqli->query($query);
