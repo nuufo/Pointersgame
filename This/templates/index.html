@@ -1,73 +1,87 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
-<head>	
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<!-- CUSTOM CSS -->
-	<link rel="stylesheet" href="styles/custom.css">
-	 
-	<!-- Fontawesone -->
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet">
-	
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-	
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<style>
-	body{background-color: #a6a6a6; }
-		#wrapper{max-width: 1200px; margin: 0 auto;}
-		.center-frame{max-width:500px; position:relative; left:0px;right:0px;top:0px;bottom:0px;margin: 0 auto;}
-		.item-form{text-align:center; margin-bottom: 30px;}
-		.item-form input{font-family:"Montserrat";font-weight: 700; font-size:1em; padding:7px; border:0px; background:{{color}}; outline:none; color: {{bgc}}}
-		.item-form input[type="submit"]{font-family:"Quicksand";font-weight: 700;padding:7px 10px;border:0px;background:{{color}}; color: {{bgc}}}
-		.item-list {text-align: center; margin-bottom: 10px;font-family: "Montserrat"; font-size: 1.3em;color: {{color}};}
-		.item-list input[type="submit"]{font-family: 'Montserrat'; font-size: 1em; border:0px;outline:0px;background:none;color:{{color}};padding: 0px 6px;vertical-align: middle;}
-		.item-list.done input[type="submit"]{font-size: 0.6em; border: 1px solid; margin-top: 8px;}
-		.done span{text-decoration: line-through;}
-		p{text-align: center; font-family: 'Quicksand', sans-serif; color: {{color}}; margin-bottom: 30px; margin-top: 1px;}
-		h1{text-align: center;text-transform: uppercase; font-family: "Montserrat"; font-weight: 700; color: {{color}}; margin-bottom: 30px; margin-top: 60px;}
-		h2{text-align: center;text-transform: uppercase; font-family: "Montserrat"; font-weight: 700; color: {{color}}; margin-bottom: 10px; margin-top: 20px;}
-		span{text-align: center; font-family: 'Quicksand', sans-serif; color: {{color}}; margin-bottom: 5px; margin-top: 5px;}
-	</style>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{title}}</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
-	<body>
-	<div id="wrapper">
-		<div class="center-frame">
 
-			{% include "showtodolist.html" %}	
-			
+<body id="page-top" class="index">
 
-			<div class="item-list">
-				{%if user %}
-				Inloggad!
-			{% for listitem in listitems %}
+    <!-- Navigation -->
+    {% include "navbar.html" %}
 
-		{% include "showtodolist.html" %}	
-		
-	{% endfor %}
-			{%else %}
-			{% include "loginUserform.html" %}
-			{%endif%}
-			</div>
+    <!-- Header -->
+    {% include "header.html" %}
 
-			<div class="item-list done">	
-			
-			</div>
-		</div>
+    <!-- If freemium user is logged in, show following -->
+    {% if freemium %}
+        {% include "userheader.html" %}
+    {% endif %}
+    <!-- / freemium user specified content -->
 
-	</div>
-		
-	
+    <!-- If premium user is logged in, show following -->
+    {% if premium %}
+        {% include "userheader.html" %}
+    {% endif %}
+    <!-- / premium user specified content -->
 
+    <!-- Contact Section -->
+    {% include "contact.html" %}
 
+    <!-- Footer -->
+    {% include "footer.html" %}
 
-	</body>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visible-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+
+</body>
 
 </html>
