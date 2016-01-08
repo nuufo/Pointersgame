@@ -19,14 +19,51 @@
 	
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<style>
+	body{background-color: #a6a6a6; }
+		#wrapper{max-width: 1200px; margin: 0 auto;}
+		.center-frame{max-width:500px; position:relative; left:0px;right:0px;top:0px;bottom:0px;margin: 0 auto;}
+		.item-form{text-align:center; margin-bottom: 30px;}
+		.item-form input{font-family:"Montserrat";font-weight: 700; font-size:1em; padding:7px; border:0px; background:{{color}}; outline:none; color: {{bgc}}}
+		.item-form input[type="submit"]{font-family:"Quicksand";font-weight: 700;padding:7px 10px;border:0px;background:{{color}}; color: {{bgc}}}
+		.item-list {text-align: center; margin-bottom: 10px;font-family: "Montserrat"; font-size: 1.3em;color: {{color}};}
+		.item-list input[type="submit"]{font-family: 'Montserrat'; font-size: 1em; border:0px;outline:0px;background:none;color:{{color}};padding: 0px 6px;vertical-align: middle;}
+		.item-list.done input[type="submit"]{font-size: 0.6em; border: 1px solid; margin-top: 8px;}
+		.done span{text-decoration: line-through;}
+		p{text-align: center; font-family: 'Quicksand', sans-serif; color: {{color}}; margin-bottom: 30px; margin-top: 1px;}
+		h1{text-align: center;text-transform: uppercase; font-family: "Montserrat"; font-weight: 700; color: {{color}}; margin-bottom: 30px; margin-top: 60px;}
+		h2{text-align: center;text-transform: uppercase; font-family: "Montserrat"; font-weight: 700; color: {{color}}; margin-bottom: 10px; margin-top: 20px;}
+		span{text-align: center; font-family: 'Quicksand', sans-serif; color: {{color}}; margin-bottom: 5px; margin-top: 5px;}
+	</style>
 </head>
 	<body>
-	
+	<div id="wrapper">
+		<div class="center-frame">
+
+			{% include "showtodolist.html" %}	
+			
+
+			<div class="item-list">
+				{%if user %}
+				Inloggad!
+			{% for listitem in listitems %}
+
+		{% include "showtodolist.html" %}	
 		
-	{% include "showtodolist.html" %}
+	{% endfor %}
+			{%else %}
+			{% include "loginUserform.html" %}
+			{%endif%}
+			</div>
 
+			<div class="item-list done">	
+			
+			</div>
+		</div>
 
-	{% include "loginUserform.html" %}
+	</div>
+		
+	
 
 
 

@@ -14,7 +14,7 @@ class Admin{
 			$query = "
 				SELECT id, username
 				FROM user
-				WHERE username = '$username'
+				WHERE username = '$username'3
 				AND password = '$password'
 				LIMIT 1
 			";
@@ -22,13 +22,16 @@ class Admin{
 			$result = $mysqli->query($query);
 			$user = $result->fetch_assoc();
 
-			$result1 = $mysqli->query("SELECT * FROM todolist, user
-				WHERE user.id = todolist.user_id AND user_id=".$user['id']."
 
-			 	");
+			$query1 = " SELECT * FROM todolist /* FROM todolist, listitem, user
+						WHERE user.id = todolist.user_id AND user.id=".$user['id']." AND listitem.todo_id = todolist.id*/
 
-		 		while($todolist = $result1->fetch_assoc()){
-		 		$todolists[] = $todolist;
+			 	 ";
+
+			$result1 = $mysqli->query($query1);
+
+		 		while($listitem = $result1->fetch_assoc()){
+		 		$listitems[] = $listitem;
 			 
 		 }
 		 
@@ -38,8 +41,10 @@ class Admin{
 					
 				
 				return [ 
-					'redirect' => '?/Todolist/all'
-				];
+					'listitem' => $listitems
+					//'redirect' => '?/Admin/login'
+					
+					];
 				
 
 			}
