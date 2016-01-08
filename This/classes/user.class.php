@@ -1,3 +1,4 @@
+
 <?php
 class User{
 	public static function userList($params) {
@@ -10,7 +11,7 @@ class User{
 		 		while($todolist = $result1->fetch_assoc()){
 		 		$todolists[] = $todolist; 
 
-
+		 	}
 	}
 
 	public static function login($params){
@@ -93,6 +94,6 @@ class User{
 		}
 
 		return ['createdUser' => TRUE];
-	}
+		}
 
-}
+	}
