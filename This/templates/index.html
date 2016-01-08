@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html lang="en">
 <head>	
@@ -41,17 +41,28 @@
 	<div id="wrapper">
 		<div class="center-frame">
 
-			{% include "showtodolist.html" %}	
-			
+	
+	
 
 			<div class="item-list">
+				
+
 				{%if user %}
 				Inloggad!
-			{% for listitem in listitems %}
-
-		{% include "showtodolist.html" %}	
+			{% if listitems %}
+		{% for listitem in listitems %}
 		
-	{% endfor %}
+			{% include "showlistitems.html" %}	
+
+		{% endfor %}
+		{% include "createlistitem.html" %}
+		
+
+		{%else %}
+{% include "createlistitem.html" %}
+		{% include "createtodolist.html" %}
+	{% endif %}
+
 			{%else %}
 			{% include "loginUserform.html" %}
 			{%endif%}
