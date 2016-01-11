@@ -49,10 +49,25 @@
     <body id="page-top" class="index">
 
         <!-- Navigation -->
+		
+
+
         {% include "navbar.html" %}
+			
+
 
         <!-- Header -->
-        {% include "header.html" %}
+        
+
+         
+         	{%if user %}
+		{% include "userheader.html" %}
+		{% else %}
+		{% include "header.html" %}
+		{% include "login.html" %}
+		   <!-- Contact Section -->
+     
+		{% endif %}
 
         <!-- If freemium user is logged in, show following -->
         {% if freemium %}
