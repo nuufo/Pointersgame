@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
 
     <title>{{title}}</title>
 
@@ -29,15 +31,43 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+</head>
+
+
+<body id="page-top" class="index">
+
+
+	
+	
+
+
+    <!-- Navigation -->
+    {% include "navbar.html" %}
+
 
 </head>
     <body id="page-top" class="index">
 
         <!-- Navigation -->
+		
+
+
         {% include "navbar.html" %}
+			
+
 
         <!-- Header -->
-        {% include "header.html" %}
+        
+
+         
+         	{%if user %}
+		{% include "userheader.html" %}
+		{% else %}
+		{% include "header.html" %}
+		{% include "login.html" %}
+		   <!-- Contact Section -->
+     
+		{% endif %}
 
         <!-- If freemium user is logged in, show following -->
         {% if freemium %}
@@ -60,12 +90,16 @@
         <!-- Footer -->
         {% include "footer.html" %}
 
+
+    <!-- Bootstrap Core JavaScript -->
+
         <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
         <div class="scroll-top page-scroll visible-xs visible-sm">
             <a class="btn btn-primary" href="#page-top">
                 <i class="fa fa-chevron-up"></i>
             </a>
         </div>
+
 
         <!-- jQuery -->
         <script src="templates/js/jquery.js"></script>
@@ -78,11 +112,15 @@
         <script src="templates/js/classie.js"></script>
         <script src="templates/js/cbpAnimatedHeader.js"></script>
 
-        <!-- Contact Form JavaScript -->
-        <script src="templates/js/jqBootstrapValidation.js"></script>
-        <script src="templates/js/contact_me.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</body>
+
 
         <!-- Custom Theme JavaScript -->
         <script src="templates/js/freelancer.js"></script>
     </body>
 </html>
+
