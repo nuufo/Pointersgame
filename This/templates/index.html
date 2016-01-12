@@ -1,8 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,13 +11,13 @@
     <title>{{title}}</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="templates/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/freelancer.css" rel="stylesheet">
+    <link href="templates/css/freelancer.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="templates/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -30,58 +29,67 @@
     <![endif]-->
 
 </head>
+    <body id="page-top" class="index">
 
-<body id="page-top" class="index">
+        <!-- Navigation -->
+		{% include "navbar.html" %}    
 
-    <!-- Navigation -->
-    {% include "navbar.html" %}
+        <!-- if user is logged in. This will later be changed to Freemium/Premium --> 
+        {%if user %}
+            {% include "userheader.html" %}
+            {% for listitem in listitems %}
+                {% include "showlistitems.html" %}        
+            {% endfor %}
+            {% else %}
+                {% include "header.html" %}
+                {% include "login.html" %}
+            {% endif %}
+        <!-- / user -->
 
-    <!-- Header -->
-    {% include "header.html" %}
+        <!-- If Freemium user is logged in, show following -->
+        {% if freemium %}
+            {% include "userheader.html" %}
+        {% endif %}
+        <!-- / Freemium user specified content -->
 
-    <!-- If freemium user is logged in, show following -->
-    {% if freemium %}
-        {% include "userheader.html" %}
-    {% endif %}
-    <!-- / freemium user specified content -->
+        <!-- If premium user is logged in, show following -->
+        {% if premium %}
+            {% include "userheader.html" %}
+        {% endif %}
+        <!-- / premium user specified content -->
 
-    <!-- If premium user is logged in, show following -->
-    {% if premium %}
-        {% include "userheader.html" %}
-    {% endif %}
-    <!-- / premium user specified content -->
+        <!-- About Section -->
+        {% include "about.html" %}
 
-    <!-- Contact Section -->
-    {% include "contact.html" %}
+        <!-- Contact Section -->
+        {% include "contact.html" %}
 
-    <!-- Footer -->
-    {% include "footer.html" %}
+        <!-- Footer -->
+        {% include "footer.html" %}
 
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll visible-xs visible-sm">
-        <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
-    </div>
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+        <div class="scroll-top page-scroll visible-xs visible-sm">
+            <a class="btn btn-primary" href="#page-top">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+        </div>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+        <!-- jQuery -->
+        <script src="templates/js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="templates/js/bootstrap.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
-    <script src="js/cbpAnimatedHeader.js"></script>
+        <!-- Plugin JavaScript -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="templates/js/classie.js"></script>
+        <script src="templates/js/cbpAnimatedHeader.js"></script>
 
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
-
-</body>
-
+        <!-- Custom Theme JavaScript -->
+        <script src="templates/js/freelancer.js"></script>
+    </body>
 </html>
+
