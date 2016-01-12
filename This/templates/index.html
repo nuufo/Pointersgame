@@ -62,6 +62,24 @@
          
          	{%if user %}
 		{% include "userheader.html" %}
+		
+
+		{% for todolist in todolists %}
+		{% include "showallusertodolist.html" %}	
+		
+		{% endfor %}
+
+		{% include "showtodolist.html" %}	
+		
+
+			
+			
+
+		{% include "createlistitem.html" %}
+			{% include "createtodolist.html" %}
+	
+		Total Score:
+		{% include "showtotalpoints.html" %}
 		{% else %}
 		{% include "header.html" %}
 		{% include "login.html" %}
