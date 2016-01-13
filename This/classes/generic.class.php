@@ -15,5 +15,8 @@ class generic {
 		return ['template' => 'tipsinfo.html'];
 
 	}
+
+	public static function inspoContent($params){
+		return ['template' => 'inspoinfo.html'];
 }
-	
+	}

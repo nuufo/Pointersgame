@@ -51,16 +51,20 @@ class Todolist{
 		$id = $params[0];
 		$mysqli = DB::getInstance();
 		$id = $mysqli->real_escape_string($id);
-		$result = $mysqli->query("SELECT * FROM todolist WHERE id=$id");
+		$result = $mysqli->query("SELECT * FROM todolist WHERE id= ".$id." ");
 		$todolist = $result->fetch_assoc();
 
-		$result = $mysqli->query("SELECT * FROM listitem WHERE todolist_id=$id");
+		$result = $mysqli->query("SELECT * FROM listitem WHERE todolist_id= ".$id." ");
+		$result2 = $mysqli->query("SELECT * FROM donelistitem WHERE todolist_id= ".$id." ");
 		
 		while($listitem = $result->fetch_assoc()){
 			$listitems[] = $listitem;
-		}	 	
+		}
+		 while($doneitem = $result2->fetch_assoc()){
+		 	$doneitems[] = $doneitem;
+		 }	 	
 
-	 	return ['todolist' => $todolist, 'listitems' => $listitems];  
+	 	return ['todolist' => $todolist, 'listitems' => $listitems, 'donelistitems' => $doneitems, 'single' => 'single', ];  
 		
 	}
 		public static function all($params){
@@ -77,6 +81,38 @@ class Todolist{
 		 return ['todolists' => $todolists];
 		
 	}
+		public static function deletelistitem($params){
+		
+		$id = $params[0];
+		$mysqli = DB::getInstance();
+		$id = $mysqli->real_escape_string($id);
+		$result = $mysqli->query("DELETE FROM listitem WHERE id=$id ");
+
+
+	 	return ['redirect' => $_SERVER['HTTP_REFERER']];  
+		
+	}
+	public static function doneitem($params){
+		
+		$id = $params[0];
+		$mysqli = DB::getInstance();
+		
+		
+		$result = $mysqli->query("INSERT INTO donelistitem
+								SELECT * FROM listitem
+								WHERE listitem.id = ".$id." ");
+		$query2 = "DELETE FROM listitem where listitem.id = ".$id." "; 
+
+			$mysqli->query($query2);
+
+		
+	
+
+			
+			return ['redirect' => $_SERVER['HTTP_REFERER']];
+		
+	}
+
 
 
 
