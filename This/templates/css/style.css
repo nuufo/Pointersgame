@@ -1,21 +1,32 @@
+#contact {
+	background-color: #d9dcdc;
+}
 
-/* Tipsinfo-page */
+/*Inspiration Page*/
+.inspoInfo h2 {
+	text-align: center;
+}
+
+
+/* Tipsinfo Page */
 .tips h2 {
 	text-align: center;
 }
 
 
-/* Aboutgoat-page */
+/* Aboutgoat Page */
 .goat h2 {
 	text-align: center;
 }
 
-/* Aboutpoint-page */
+/* Aboutpoint Page */
 .point h2 {
 	text-align: center;
+
 
 
 /* Todo-list style */
 
 .todolist {
      margin-top: 20%;
+
