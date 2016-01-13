@@ -7,6 +7,7 @@ if(count($url_parts)>=2) {
 	$method = array_shift($url_parts);  
 	require_once("classes/".$class.".class.php");
 	$data = $class::$method($url_parts);
+
     if(isset($data['redirect'])){
 	   header("Location: ".$data['redirect']);
     } 
@@ -14,6 +15,7 @@ if(count($url_parts)>=2) {
 		$twig = startTwig();
 		$template = "index.html";
 	if(isset($data['template'])) {
+		$twig = startTwig();
 		$template = $data['template'];
     }
 	
@@ -50,3 +52,5 @@ function startTwig() {
 	$loader = new Twig_Loader_Filesystem('templates/');
 	return $twig = new Twig_Environment($loader);
 }
+
+var_dump($data);

@@ -35,7 +35,7 @@
 		{% include "navbar.html" %}    
 
 
-        {% include "navbar.html" %}
+       
 			
 
 
@@ -44,7 +44,7 @@
 
          
          	{%if user %}
-		{% include "userheader.html" %}
+		
 		
 
 		{% for todolist in todolists %}
@@ -54,8 +54,10 @@
 
 		{% include "showtodolist.html" %}	
 		
-
-			
+        {%if template%}
+        sug min baffe
+		{% endif %}
+	
 			
 
 		{% include "createlistitem.html" %}
@@ -74,7 +76,7 @@
 
         <!-- if user is logged in. This will later be changed to Freemium/Premium --> 
         {%if user %}
-            {% include "userheader.html" %}
+           
             {% for listitem in listitems %}
                 {% include "showlistitems.html" %}        
             {% endfor %}
@@ -83,7 +85,8 @@
                 {% include "header.html" %}
                 {% include "login.html" %}
             {% endif %}
-        <!-- / user -->
+
+                   <!-- / user -->
 
         <!-- If Freemium user is logged in, show following -->
 
