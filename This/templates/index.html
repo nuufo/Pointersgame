@@ -34,6 +34,44 @@
         <!-- Navigation -->
 		{% include "navbar.html" %}    
 
+
+        {% include "navbar.html" %}
+			
+
+
+        <!-- Header -->
+        
+
+         
+         	{%if user %}
+		{% include "userheader.html" %}
+		
+
+		{% for todolist in todolists %}
+		{% include "showallusertodolist.html" %}	
+		
+		{% endfor %}
+
+		{% include "showtodolist.html" %}	
+		
+
+			
+			
+
+		{% include "createlistitem.html" %}
+			{% include "createtodolist.html" %}
+	
+		Total Score:
+		{% include "showtotalpoints.html" %}
+		{% else %}
+		{% include "header.html" %}
+		{% include "login.html" %}
+		   <!-- Contact Section -->
+     
+		{% endif %}
+
+        <!-- If freemium user is logged in, show following -->
+
         <!-- if user is logged in. This will later be changed to Freemium/Premium --> 
         {%if user %}
             {% include "userheader.html" %}
@@ -48,6 +86,7 @@
         <!-- / user -->
 
         <!-- If Freemium user is logged in, show following -->
+
         {% if freemium %}
             {% include "userheader.html" %}
         {% endif %}
