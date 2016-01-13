@@ -10,5 +10,10 @@ class generic {
 		return ['template' => 'aboutPointGame.html'];
 
 	}
+
+		public static function tipsContent($params){
+		return ['template' => 'tipsinfo.html'];
+
+	}
 }
 	
