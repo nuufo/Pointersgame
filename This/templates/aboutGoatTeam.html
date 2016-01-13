@@ -1,14 +1,15 @@
 
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
+     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{title}}</title>
+    <title></title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="templates/css/bootstrap.min.css" rel="stylesheet">
@@ -28,90 +29,29 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
 </head>
-    <body id="page-top" class="index">
+<body>
 
-        <!-- Navigation -->
-		{% include "navbar.html" %}    
-
-
-       
-			
-
-
-        <!-- Header -->
-        
-
-         
-         	{%if user %}
-		
-		
-
-		{% for todolist in todolists %}
-		{% include "showallusertodolist.html" %}	
-		
-		{% endfor %}
-
-		{% include "showtodolist.html" %}	
-		
-        {%if template%}
-        sug min baffe
-		{% endif %}
-	
-			
-
-		{% include "createlistitem.html" %}
-			{% include "createtodolist.html" %}
-	
-		Total Score:
-		{% include "showtotalpoints.html" %}
-		{% else %}
-		{% include "header.html" %}
-		{% include "login.html" %}
-		   <!-- Contact Section -->
-     
-		{% endif %}
-
-        <!-- If freemium user is logged in, show following -->
-
-        <!-- if user is logged in. This will later be changed to Freemium/Premium --> 
-        {%if user %}
+        <div class="modal-content">
            
-            {% for listitem in listitems %}
-                {% include "showlistitems.html" %}        
-            {% endfor %}
-            {% include "tips.html" %}
-            {% else %}
-                {% include "header.html" %}
-                {% include "login.html" %}
-                {% include "inspiration.html" %}
-            {% endif %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Goat Team</h2>
+                            <hr class="star-primary">
+                            <img src="img/portfolio/aboutGoatLogo.png" class="img-responsive" alt="">
+                           <p>We are a group of students that realised many need help reaching their goals. A lot of time goes to waste without planning you end up pushing things aside and getting stressed.  We created Point Game so you have a tool that makes it easier and more fun to get efficient in you’re daily life witch will lead to reaching your goals. </p>
 
-                   <!-- / user -->
-
-        <!-- If Freemium user is logged in, show following -->
-
-        {% if freemium %}
-            {% include "userheader.html" %}
-        {% endif %}
-        <!-- / Freemium user specified content -->
-
-        <!-- If premium user is logged in, show following -->
-        {% if premium %}
-            {% include "userheader.html" %}
-        {% endif %}
-        <!-- / premium user specified content -->
-
-        <!-- About Section -->
-        {% include "about.html" %}
-
-        <!-- Contact Section -->
-        {% include "contact.html" %}
-
-        <!-- Footer -->
-        {% include "footer.html" %}
-
-        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+   
         <div class="scroll-top page-scroll visible-xs visible-sm">
             <a class="btn btn-primary" href="#page-top">
                 <i class="fa fa-chevron-up"></i>
@@ -134,5 +74,9 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="templates/js/freelancer.js"></script>
-    </body>
+</body>
 </html>
+
+
+
+

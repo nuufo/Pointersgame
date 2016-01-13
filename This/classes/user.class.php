@@ -32,7 +32,7 @@ class User{
 			
 					
 			return ['user' => $_SESSION['user'],
-			'redirect' => '?/Todolist/getUserlist'
+			'redirect' => '?/Todolist/all'
 			];
 			 		 				
 			}
