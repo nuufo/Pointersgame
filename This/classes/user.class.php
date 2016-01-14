@@ -51,7 +51,7 @@ class User{
                 session_destroy();
 
 
-                return ['redirect' => $_SERVER['HTTP_REFERER']];
+                return ['redirect' => '/This'];
 				 				
 			} 
 		
