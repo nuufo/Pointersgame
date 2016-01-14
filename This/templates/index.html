@@ -38,41 +38,39 @@
 
         <!-- Navigation -->
 		{% include "navbar.html" %}    
-
-
-       
-			
-
-
-        <!-- Header -->
-        
-
          
          	{%if user %}
+              
 		
-		
-
 		{% for todolist in todolists %}
-		{% include "showallusertodolist.html" %}	
-		
+		      {% include "showallusertodolist.html" %}	
 		{% endfor %}
 
-		{% include "showtodolist.html" %}	
-		
-        {%if template%}
-        sug min baffe
-		{% endif %}
-	
+		{% if single %}
+	    {% include "showtodolist.html" %} 
+		          {% endif %}
 			
-
-		{% include "createlistitem.html" %}
-			{% include "createtodolist.html" %}
+        {% include "createtodolist.html" %}
 	
 		Total Score:
 		{% include "showtotalpoints.html" %}
+
 		{% else %}
 		{% include "header.html" %}
 		{% include "login.html" %}
+        <!-- About Section -->
+         {% include "about.html" %}
+
+        <!-- Inspo Section -->
+        
+        {% include "inspiration.html" %}
+        
+
+        <!-- Contact Section -->
+        {% include "contact.html" %}
+
+        <!-- Footer -->
+        {% include "footer.html" %}
 		   <!-- Contact Section -->
      
 		{% endif %}
@@ -80,16 +78,7 @@
         <!-- If freemium user is logged in, show following -->
 
         <!-- if user is logged in. This will later be changed to Freemium/Premium --> 
-        {%if user %}
-           
-            {% for listitem in listitems %}
-                {% include "showlistitems.html" %}        
-            {% endfor %}
-            {% include "tips.html" %}
-            {% else %}
-                {% include "header.html" %}
-                {% include "login.html" %}
-            {% endif %}
+       
 
                    <!-- / user -->
 
@@ -106,19 +95,7 @@
         {% endif %}
         <!-- / premium user specified content -->
 
-        <!-- About Section -->
-        {% include "about.html" %}
 
-        <!-- Inspo Section -->
-        
-        {% include "inspiration.html" %}
-        
-
-        <!-- Contact Section -->
-        {% include "contact.html" %}
-
-        <!-- Footer -->
-        {% include "footer.html" %}
 
         <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
         <div class="scroll-top page-scroll visible-xs visible-sm">
