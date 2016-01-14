@@ -1,3 +1,9 @@
+/* Todo-list style */
+.todolist {
+     margin-top: 20%;
+}
+
+
 #contact {
 	background-color: #d9dcdc;
 }
@@ -25,8 +31,5 @@
 
 
 
-/* Todo-list style */
 
-.todolist {
-     margin-top: 20%;
 
