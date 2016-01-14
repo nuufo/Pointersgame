@@ -40,6 +40,31 @@ class User{
 			return [];
 
 		}
+		public static function createuser($params){
+		
+			$mysqli = DB::getInstance();
+			$username = $mysqli->real_escape_string($_POST['createusername']);
+			$password = $mysqli->real_escape_string($_POST['createpassword']);
+			$userid = $mysqli->real_escape_string($_POST['createuser_id']);
+
+				
+
+			$query = "
+				INSERT INTO user
+				(id, username, password) 
+				VALUES ('$userid', '$username', '$password')
+			";
+
+			$mysqli->query($query);
+
+			return ['redirect' => $_SERVER['HTTP_REFERER']];
+		
+			
+
+		}
+
+
+
 
 
 		public static function logout($params){ 
@@ -51,7 +76,7 @@ class User{
                 session_destroy();
 
 
-                return ['redirect' => $_SERVER['HTTP_REFERER']];
+                return ['redirect' => '/This'];
 				 				
 			} 
 		

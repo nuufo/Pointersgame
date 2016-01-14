@@ -43,12 +43,9 @@
         {% endif %}
 
         {% include "createtodolist.html" %}
-
+        
         Total Score:
         {% include "showtotalpoints.html" %}
-
-        <!-- Tips Section -->
-        {% include "tips.html" %}
 
         <!-- Contact Section -->
         {% include "contact.html" %}
@@ -66,10 +63,7 @@
                 {% include "header.html" %}
                 {% include "login.html" %}
                 {% include "inspiration.html" %}
-            {% endif %}
-
-
-                   <!-- / user -->
+        {% endif %}
 
 
         {% else %}
@@ -77,6 +71,7 @@
             {% include "header.html" %}
             <!-- Login Section -->
             {% include "login.html" %}
+            {% include "createaccount.html" %}
             <!-- Inspiration Section -->
             {% include "inspiration.html" %}
             <!-- About Section -->
