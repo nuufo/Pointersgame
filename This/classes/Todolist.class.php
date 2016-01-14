@@ -51,7 +51,7 @@ class Todolist{
 		$id = $params[0];
 		$mysqli = DB::getInstance();
 		$id = $mysqli->real_escape_string($id);
-		$result = $mysqli->query("SELECT * FROM todolist WHERE id= ".$id." ");
+		$result = $mysqli->query("SELECT * FROM todolist WHERE id= ".$id." "); //fixa
 		$todolist = $result->fetch_assoc();
 
 		$result = $mysqli->query("SELECT * FROM listitem WHERE todolist_id= ".$id." ");
@@ -70,7 +70,9 @@ class Todolist{
 		public static function all($params){
 				#17. Värdet som kommer ut här som $params är $url_parts som vi skickade in från index.php. ($params kan heta vad somhelst.)
 		 $mysqli = DB::getInstance();
-		 $result = $mysqli->query(" SELECT * FROM todolist  ");
+		 $result = $mysqli->query("	SELECT * FROM todolist, user where todolist.user_id = user.id and user.id = ".$_SESSION['user']['id']."
+
+		  ");
 
 		 while($todolist = $result->fetch_assoc()){
 		 	$todolists[] = $todolist;
