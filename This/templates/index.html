@@ -47,12 +47,23 @@
         Total Score:
         {% include "showtotalpoints.html" %}
 
-        <!-- Tips Section -->
-        {% include "tips.html" %}
-
         <!-- Contact Section -->
         {% include "contact.html" %}
 
+
+        <!-- if user is logged in. This will later be changed to Freemium/Premium --> 
+
+        {%if user %}
+           
+            {% for listitem in listitems %}
+                {% include "showlistitems.html" %}        
+            {% endfor %}
+            {% include "tips.html" %}
+            {% else %}
+                {% include "header.html" %}
+                {% include "login.html" %}
+                {% include "inspiration.html" %}
+        {% endif %}
 
 
         {% else %}
@@ -108,4 +119,3 @@
 
     </body>
 </html>
-
