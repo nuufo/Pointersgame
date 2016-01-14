@@ -42,4 +42,21 @@ class User{
 		}
 
 
+		public static function logout($params){ 
+
+
+              if(isset($_POST['logout'])){
+
+                session_unset();
+                session_destroy();
+
+
+                return ['redirect' => $_SERVER['HTTP_REFERER']];
+				 				
+			} 
+		
+
+			}
+
+
 	}
