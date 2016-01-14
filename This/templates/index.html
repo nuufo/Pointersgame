@@ -12,70 +12,47 @@
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
     <link href="templates/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="templates/css/freelancer.css" rel="stylesheet">
-
-
+    <!-- Own CSS -->
+    <link href="templates/css/style.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="templates/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
-    <!-- Own Styling -->
-    <link href="templates/css/style.css" rel="stylesheet">
-
+    <!-- Scripts -->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 </head>
+
     <body id="page-top" class="index">
-
-        <!-- Navigation -->
-		{% include "navbar.html" %}    
+    <!-- Navigation -->
+    {% include "navbar.html" %}    
          
-         	{%if user %}
-              
-		
-		{% for todolist in todolists %}
-		      {% include "showallusertodolist.html" %}	
-		{% endfor %}
+    <!-- if user -->
+    {%if user %}
+        <!-- Navigation User LoggedIn -->
+        {% include "navbarLoggedIn.html" %}
 
-		{% if single %}
-	    {% include "showtodolist.html" %} 
-		          {% endif %}
-			
+        {% for todolist in todolists %}
+            {% include "showallusertodolist.html" %} 
+        {% endfor %}
+
+        {% if single %}
+            {% include "showtodolist.html" %} 
+        {% endif %}
+
         {% include "createtodolist.html" %}
-	
-		Total Score:
-		{% include "showtotalpoints.html" %}
 
-		{% else %}
-		{% include "header.html" %}
-		{% include "login.html" %}
-        <!-- About Section -->
-         {% include "about.html" %}
+        Total Score:
+        {% include "showtotalpoints.html" %}
 
-        <!-- Inspo Section -->
-        
-        {% include "inspiration.html" %}
-        
+        <!-- Tips Section -->
+        {% include "tips.html" %}
 
         <!-- Contact Section -->
         {% include "contact.html" %}
 
-        <!-- Footer -->
-        {% include "footer.html" %}
-		   <!-- Contact Section -->
-     
-		{% endif %}
-
-        <!-- If freemium user is logged in, show following -->
 
         <!-- if user is logged in. This will later be changed to Freemium/Premium --> 
 
@@ -94,8 +71,25 @@
 
                    <!-- / user -->
 
-        <!-- If Freemium user is logged in, show following -->
 
+        {% else %}
+            <!-- Header Section -->
+            {% include "header.html" %}
+            <!-- Login Section -->
+            {% include "login.html" %}
+            <!-- Inspiration Section -->
+            {% include "inspiration.html" %}
+            <!-- About Section -->
+            {% include "about.html" %}
+            <!-- Contact Section -->
+            {% include "contact.html" %}
+            <!-- Footer -->
+            {% include "footer.html" %}
+
+    {% endif %}
+    <!-- End if user -->
+ 
+        <!-- If Freemium user is logged in, show following -->
         {% if freemium %}
             {% include "userheader.html" %}
         {% endif %}
@@ -108,7 +102,6 @@
         <!-- / premium user specified content -->
 
 
-
         <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
         <div class="scroll-top page-scroll visible-xs visible-sm">
             <a class="btn btn-primary" href="#page-top">
@@ -118,19 +111,16 @@
 
         <!-- jQuery -->
         <script src="templates/js/jquery.js"></script>
-
         <!-- Bootstrap Core JavaScript -->
         <script src="templates/js/bootstrap.min.js"></script>
-
         <!-- Plugin JavaScript -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src="templates/js/classie.js"></script>
         <script src="templates/js/cbpAnimatedHeader.js"></script>
-
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
         <!-- Custom Theme JavaScript -->
         <script src="templates/js/freelancer.js"></script>
+
     </body>
 </html>
