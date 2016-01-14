@@ -26,11 +26,14 @@
 </head>
 
     <body id="page-top" class="index">
-    <!-- Menu -->
+    <!-- Navigation -->
     {% include "navbar.html" %}    
          
     <!-- if user -->
     {%if user %}
+        <!-- Navigation User LoggedIn -->
+        {% include "navbarLoggedIn.html" %}
+
         {% for todolist in todolists %}
             {% include "showallusertodolist.html" %} 
         {% endfor %}
@@ -43,6 +46,14 @@
 
         Total Score:
         {% include "showtotalpoints.html" %}
+
+        <!-- Tips Section -->
+        {% include "tips.html" %}
+
+        <!-- Contact Section -->
+        {% include "contact.html" %}
+
+
 
         {% else %}
             <!-- Header Section -->
