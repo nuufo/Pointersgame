@@ -2,9 +2,15 @@
 
 class User{
 
+<<<<<<< Updated upstream
 	public static function createUser($params){
 
 		if(isset($_POST['createuser'])){
+=======
+	public static function createtodolist($params){
+
+		if(isset($_POST['createtodolist'])){
+>>>>>>> Stashed changes
 			$mysqli = DB::getInstance();
 			$firstname = $mysqli->real_escape_string($_POST['firstname']);
 			$lastname = $mysqli->real_escape_string($_POST['lastname']);
@@ -15,17 +21,31 @@ class User{
 			
 
 			$query = "
+<<<<<<< Updated upstream
 				INSERT INTO user
 				(firstname, lastname, email, username, password, user_id) 
 				VALUES ('$firstname', '$lastname', '$email', '$username', '$password', '$user_id')
+=======
+<<<<<<< Updated upstream
+				INSERT INTO todolist
+=======
+				INSERT INTO user
+>>>>>>> Stashed changes
+				(name, user_id) 
+				VALUES ('$todoname', ".$_SESSION['user']['id'].")
+>>>>>>> Stashed changes
 			";
 
 			$mysqli->query($query);
 
 			return ['redirect' =>  '/Pointersgame']; //];
 		}
+<<<<<<< Updated upstream
 
 	}
+=======
+	}	
+>>>>>>> Stashed changes
 
 	public static function login($params){
 		
@@ -66,6 +86,8 @@ class User{
 			return [];
 
 		}
+
+
 
 	public static function logout($params){ 
 
