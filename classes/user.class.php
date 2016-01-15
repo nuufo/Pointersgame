@@ -10,16 +10,14 @@ class User{
 			$mysqli = DB::getInstance();
 			$firstname = $mysqli->real_escape_string($_POST['firstname']);
 			$lastname = $mysqli->real_escape_string($_POST['lastname']);
-			$email = $mysqli->real_escape_string($_POST['email']);
+			$email = ($_POST['email']);
 			$username = $mysqli->real_escape_string($_POST['username']);
-			$password = $mysqli->real_escape_string($_POST['password']);
-			$user_id = $_SESSION['user']['id'];
-			
+			$password = $mysqli->real_escape_string($_POST['password']);			
 
 			$query = "
 				INSERT INTO user
-				(firstname, lastname, email, username, password, id) 
-				VALUES ('$firstname', '$lastname', '$email', '$username', '$password', '$user_id')
+				(firstname, lastname, email, username, password) 
+				VALUES ('$firstname', '$lastname', '$email', '$username', '$password')
 			";
 
 			$mysqli->query($query);
