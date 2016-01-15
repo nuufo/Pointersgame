@@ -18,7 +18,7 @@ class User{
 
 			$query = "
 				INSERT INTO user
-				(firstname, lastname, email, username, password, user_id) 
+				(firstname, lastname, email, username, password, id) 
 				VALUES ('$firstname', '$lastname', '$email', '$username', '$password', '$user_id')
 			";
 
