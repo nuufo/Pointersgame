@@ -45,7 +45,7 @@ class User{
               if(isset($_POST['logout'])){
                 session_unset();
                 session_destroy();
-                return ['redirect' => '/This'];
+                return ['redirect' => '/Pointersgame'];
 				 				
 			} 
 		
