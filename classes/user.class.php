@@ -3,7 +3,7 @@
 class User{
 
 
-	public static function createUser($params){
+	public static function createuser($params){
 
 		if(isset($_POST['createuser'])){
 
