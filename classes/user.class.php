@@ -8,7 +8,7 @@ class User{
 			$mysqli = DB::getInstance();
 			$firstname = $mysqli->real_escape_string($_POST['firstname']);
 			$lastname = $mysqli->real_escape_string($_POST['lastname']);
-			$email = ($_POST['email']);
+			$email = $mysqli->real_escape_string($_POST['email']);
 			$username = $mysqli->real_escape_string($_POST['username']);
 			$password = $mysqli->real_escape_string($_POST['password']);			
 
