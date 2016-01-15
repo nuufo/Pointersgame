@@ -4,9 +4,7 @@ class User{
 
 
 	public static function createuser($params){
-
 		if(isset($_POST['createuser'])){
-
 			$mysqli = DB::getInstance();
 			$firstname = $mysqli->real_escape_string($_POST['firstname']);
 			$lastname = $mysqli->real_escape_string($_POST['lastname']);
@@ -20,9 +18,9 @@ class User{
 				VALUES ('$firstname', '$lastname', '$email', '$username', '$password')
 			";
 
-			$mysqli->query($query);
+			$mysqli->query($query) or die($mysqli->error);
 
-			return ['redirect' =>  '/Pointersgame'];
+			return [];
 		}
 	}	
 
