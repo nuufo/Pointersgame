@@ -1,5 +1,5 @@
 <?php
-class generic {
+class Generic {
 
 	public static function aboutGoatTeam($params){
 		return ['template' => 'aboutGoatTeam.html'];

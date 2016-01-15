@@ -2,6 +2,26 @@
 
 class User{
 
+	public static function createUser($params){
+
+		if(isset($_POST['createuser'])){
+			$mysqli = DB::getInstance();
+			$todoname = $mysqli->real_escape_string($_POST['createtodolist']);
+			
+
+			$query = "
+				INSERT INTO todolist
+				(name, user_id) 
+				VALUES ('$todoname', ".$_SESSION['user']['id'].")
+			";
+
+			$mysqli->query($query);
+
+			return ['redirect' =>  '?/Todolist/all']; //];
+		}
+
+	}
+
 	public static function login($params){
 		
 		if(isset($_POST['login'])){
