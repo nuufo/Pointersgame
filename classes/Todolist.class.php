@@ -110,10 +110,12 @@ class Todolist{
 		
 			$id = $params[0];
 			$mysqli = DB::getInstance();		
-			$result = $mysqli->query("INSERT INTO donelistitem
-									SELECT * FROM listitem
-									WHERE listitem.id = ".$id." ");
-			$query2 = "DELETE FROM listitem where listitem.id = ".$id." "; 
+			$result = $mysqli->query("
+				INSERT INTO donelistitem
+				SELECT * FROM listitem
+				WHERE listitem.id = ".$id." ");
+			$query2 = "
+				DELETE FROM listitem where listitem.id = ".$id." "; 
 
 			$mysqli->query($query2);
 		
