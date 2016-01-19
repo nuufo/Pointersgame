@@ -126,15 +126,22 @@ class Todolist{
 
 	}
 	private function getWeekExpiration() {
-		$this->week = idate('W', $timestamp);
-		if($this->week < idate('W', $timestamp)
-
-		);
+		$mysqli = DB::getInstance();
+		$result = $mysqli->query("
+			SELECT expiration
+			FROM todolist
+			WHERE todolist.id = 63 
+			")
+		$this->week = $result;
+		if($this->week + strtotime('+24 hours')){
+			echo "SANT";
+		}
 
 	}
 	private function getDayExpiration() {
+
 		$this->day = idate('d', $timestamp);
-		if($this->day < idate('d', $timestamp)
+		if($this->day + strtotime('+24 hours'))@@
 			
 		);
 
