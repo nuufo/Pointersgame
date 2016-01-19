@@ -3,23 +3,25 @@
 	
 class Todolist{
 
+	private $week, $day, $month;
+
 
 	public static function createtodolist($params){
 
 		if(isset($_POST['createtodolist'])){
 			$mysqli = DB::getInstance();
 			$todoname = $mysqli->real_escape_string($_POST['createtodolist']);
-			
+			$type = $mysqli->real_escape_string($_POST['todolisttype']);
 
 			$query = "
 				INSERT INTO todolist
-				(name, user_id) 
-				VALUES ('$todoname', ".$_SESSION['user']['id'].")
+				(name, user_id, type, expiration)
+				VALUES ('$todoname', ".$_SESSION['user']['id'].", '$type', now());
 			";
 
 			$mysqli->query($query);
 
-			return ['redirect' =>  '?/Todolist/all']; //];
+			return ['redirect' =>  '?/Todolist/all'];
 		}
 
 	}
@@ -119,8 +121,32 @@ class Todolist{
 
 			$mysqli->query($query2);
 		
-			return ['redirect' => $_SERVER['HTTP_REFERER']];
-		
+			return ['redirect' => $_SERVER['HTTP_REFERER']];		
+	}
+
+	private function getExpirationDate($type) {
+
+	}
+	private function getWeekExpiration() {
+		$this->week = idate('W', $timestamp);
+		if($this->week < idate('W', $timestamp)
+
+		);
+
+	}
+	private function getDayExpiration() {
+		$this->day = idate('d', $timestamp);
+		if($this->day < idate('d', $timestamp)
+			
+		);
+
+	}
+	private function getMonthExpiration() {
+		$this->month = idate('m', $timestamp);
+		if($this->month < idate('m', $timestamp)
+			
+		);
+
 	}
 
 }

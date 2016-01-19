@@ -19,8 +19,8 @@ class User{
 			";
 
 			$mysqli->query($query) or die($mysqli->error);
-
-			return [];
+			
+			return ['redirect' => '/Pointersgame#login'];
 		}
 	}	
 
